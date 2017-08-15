@@ -1,1 +1,8 @@
 
+https://kubernetes.io/docs/concepts/configuration/assign-pod-node/：key s
+https://kubernetes.io/docs/getting-started-guides/scratch/：unset应该标注highlight
+https://kubernetes.io/docs/concepts/storage/volumes/#emptydir：命令行存在问题
+https://kubernetes.io/docs/concepts/cluster-administration/authenticate-across-clusters-kubeconfig/：大小写问题
+https://kubernetes.io/docs/user-guide/kubectl-overview/：可以修改格式问题
+https://kubernetes.io/docs/tasks/tools/install-kubectl/:windows中链接存在问题[]
+https://kubernetes.io/docs/tasks/tools/install-kubectl/：unix中存在命令行问题
