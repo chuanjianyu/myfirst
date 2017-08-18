@@ -6,3 +6,4 @@ https://kubernetes.io/docs/concepts/cluster-administration/authenticate-across-c
 https://kubernetes.io/docs/user-guide/kubectl-overview/：可以修改格式问题
 https://kubernetes.io/docs/tasks/tools/install-kubectl/:windows中链接存在问题[]
 https://kubernetes.io/docs/tasks/tools/install-kubectl/：unix中存在命令行问题
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/:缺少一个逗号The image update starts a new rollout with ReplicaSet nginx-deployment
