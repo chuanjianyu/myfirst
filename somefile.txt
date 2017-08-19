@@ -1,0 +1,40 @@
+http://3ms.huawei.com/hi/group/1503825
+王泽锋(w00219902) 19:48
+https://github.com/kubernetes/kubernetes
+王泽锋(w00219902) 19:49
+http://3ms.huawei.com/hi/group/1503825/wiki_4753371.html?for_statistic_from=all_group_wiki
+
+王泽锋(w00219902) 20:02
+https://www.jetbrains.com/go/download/#section=windows
+https://github.com/moovweb/gvm
+王泽锋(w00219902) 20:03
+ 8170  bash < <(curl -s -k -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+ 8172  source /root/.gvm/scripts/gvm
+ 8173  gvm
+ 8175  gvm list
+ 8176  gvm listall
+ 8177  gvm install go1.8.2
+ 8179  cat /root/.gvm/logs/go-go1.8.2-compile.log
+ 8181  gvm install --help
+ 8182  gvm install go1.8.2 -B
+ 8183  gvm list
+ 8184  gvm use go1.8.2 --default
+ 8185  gvm list
+ 8190  gvm install go1.8.2
+ 8220  history grep |gvm
+
+王泽锋(w00219902) 20:06
+华为邮箱网页版
+https://email-cn.huawei.com
+王泽锋(w00219902) 20:09
+PaaS服务特训营，内有材料和讲解录屏
+http://3ms.huawei.com/km/groups/1503825/home?l=zh-cn#category=5447860
+王泽锋(w00219902) 20:17
+kubernetes官方文档库，包含少量在线教程可以自己试用一下
+https://kubernetes.io/docs/home/
+王泽锋(w00219902) 20:29
+kubernetes 中文文档
+https://www.kubernetes.org.cn/docs
+
+Docker —— 从入门到实践
+https://yeasy.gitbooks.io/docker_practice/content/install/ubuntu.html
