@@ -38,3 +38,39 @@ https://www.kubernetes.org.cn/docs
 
 Docker —— 从入门到实践
 https://yeasy.gitbooks.io/docker_practice/content/install/ubuntu.html
+
+
+
+
+echo "================Update apt-get================="
+05
+sudo apt-get update
+06
+sudo apt-get install -y build-essential libcurl4-openssl-dev libexpat1-dev gettext libz-dev libssl-dev autoconf
+07
+ 
+08
+echo "==============Download git v2.8.1=============="
+09
+wget https://github.com/git/git/archive/v2.8.1.tar.gz -O git.tar.gz --no-check-certificate
+10
+tar -zxf git.tar.gz
+11
+cd git-*
+12
+ 
+13
+echo "==============Make git configure==============="
+14
+make configure
+15
+./configure --prefix=/usr
+16
+ 
+17
+echo "==============Install git and deps============="
+18
+sudo make install
+19
+echo "==============Install successfully============="
+
