@@ -108,5 +108,6 @@ EOF
 --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" \
 --ginkgo.focus="Conformance"   >  /tempfile/e2e_result_20170904_03.log
 
+git config --global core.pager ‘less -x1,5‘
 
 
