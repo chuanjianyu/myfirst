@@ -64,6 +64,9 @@ echo "==============Install git and deps============="
 sudo make install
 19
 echo "==============Install successfully============="
+
+
+
 01
 export ALLOW_SECURITY_CONTEXT=false
 02
@@ -79,35 +82,30 @@ hack/local-up-cluster.sh
 
 
 make -j 8 WHAT=vendor/github.com/onsi/ginkgo/ginkgo
-2
-    make -j 8 WHAT=test/e2e/e2e.test
-3
-    export KUBE_MASTER_IP=127.0.0.1
-4
-    export KUBE_MASTER=127.0.0.1
-5
-    export KUBERNETES_PROVIDER=local
-6
-    export GINKGO_PARALLEL=y
-
+make -j 8 WHAT=test/e2e/e2e.test
+export KUBE_MASTER_IP=127.0.0.1
+export KUBE_MASTER=127.0.0.1
+export KUBERNETES_PROVIDER=local
+export GINKGO_PARALLEL=y
 
 cat > /root/.kube/config << EOF
-
 {
-
     "User": "root",
-
     "Password": ""
-
 }
-
 EOF
 
-
-./e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true \
+GINKGO_PARALLEL=y e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true \
 --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" \
---ginkgo.focus="Conformance"   >  /tempfile/e2e_result_20170904_03.log
+--ginkgo.focus="Conformance"  --ginkgo.skip="Serial" >  /tempfile/e2e_result_20170908_02.log
 
-git config --global core.pager ‘less -x1,5‘
+GINKGO_PARALLEL=y e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true \
+--kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" \
+> --ginkgo.focus="Conformance"  --ginkgo.skip="Serial" >  /tempfile/e2e_result_20170908_02.log
 
+ GINKGO_PARALLEL=y e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" --ginkgo.focus="\[Serial\].*\[Conformance\]" >  /tempfile/e2e_result_20170908_0201.log
 
+export GOPATH=/ycj/k8s_paas
+export GOPATH=/ycj/k8s_v1.5
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN:$GOROOT/bin
