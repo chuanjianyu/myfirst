@@ -1,9 +1,3 @@
-http://3ms.huawei.com/hi/group/1503825
-王泽锋(w00219902) 19:48
-https://github.com/kubernetes/kubernetes
-王泽锋(w00219902) 19:49
-http://3ms.huawei.com/hi/group/1503825/wiki_4753371.html?for_statistic_from=all_group_wiki
-
 王泽锋(w00219902) 20:02
 https://www.jetbrains.com/go/download/#section=windows
 https://github.com/moovweb/gvm
@@ -26,9 +20,7 @@ https://github.com/moovweb/gvm
 王泽锋(w00219902) 20:06
 华为邮箱网页版
 https://email-cn.huawei.com
-王泽锋(w00219902) 20:09
-PaaS服务特训营，内有材料和讲解录屏
-http://3ms.huawei.com/km/groups/1503825/home?l=zh-cn#category=5447860
+
 王泽锋(w00219902) 20:17
 kubernetes官方文档库，包含少量在线教程可以自己试用一下
 https://kubernetes.io/docs/home/
@@ -38,48 +30,26 @@ https://www.kubernetes.org.cn/docs
 
 Docker —— 从入门到实践
 https://yeasy.gitbooks.io/docker_practice/content/install/ubuntu.html
-
 echo "================Update apt-get================="
-05
 sudo apt-get update
-06
 sudo apt-get install -y build-essential libcurl4-openssl-dev libexpat1-dev gettext libz-dev libssl-dev autoconf
-07
 echo "==============Download git v2.8.1=============="
-09
 wget https://github.com/git/git/archive/v2.8.1.tar.gz -O git.tar.gz --no-check-certificate
-10
 tar -zxf git.tar.gz
-11
 cd git-*
-12
 echo "==============Make git configure==============="
-14
 make configure
-15
 ./configure --prefix=/usr
-16
 echo "==============Install git and deps============="
-18
 sudo make install
-19
 echo "==============Install successfully============="
 
-
-
-01
 export ALLOW_SECURITY_CONTEXT=false
-02
 sed -i '/local git/a\  KUBE_GIT_VERSION=v1.5.0-1-3d90345fdb489d' hack/lib/version.sh
-03
 mkdir -p /var/run/kubernetes/
-04
 rm -rf /var/run/kubernetes/*（启动集群前，删除证书文件）
-05
 rm -rf /tmp/* (删除tmp目录下的内容)
-06
 hack/local-up-cluster.sh
-
 
 make -j 8 WHAT=vendor/github.com/onsi/ginkgo/ginkgo
 make -j 8 WHAT=test/e2e/e2e.test
