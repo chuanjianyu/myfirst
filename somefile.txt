@@ -65,13 +65,12 @@ cat > /root/.kube/config << EOF
 }
 EOF
 
-GINKGO_PARALLEL=y e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true \
+GINKGO_PARALLEL=y ./e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true \
 --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" \
---ginkgo.focus="Conformance"  --ginkgo.skip="Serial" >  /tempfile/e2e_result_20170908_02.log
+--ginkgo.focus="Conformance"  --ginkgo.skip="Serial" >  /tempfile/e2e_result_20170911_01.log
 
-GINKGO_PARALLEL=y e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true \
---kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" \
-> --ginkgo.focus="Conformance"  --ginkgo.skip="Serial" >  /tempfile/e2e_result_20170908_02.log
+GINKGO_PARALLEL=y ./e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" --ginkgo.focus="\[Serial\].*\[Conformance\]" >  /tempfile/e2e_result_20170913_02.log
+
 
  GINKGO_PARALLEL=y e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" --ginkgo.focus="\[Serial\].*\[Conformance\]" >  /tempfile/e2e_result_20170908_0201.log
 
