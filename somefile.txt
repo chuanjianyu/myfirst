@@ -78,3 +78,7 @@ export GOPATH=/ycj/k8s_paas
 export GOPATH=/ycj/k8s_v1.5
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN:$GOROOT/bin
+
+
+
+https://docs.google.com/document/d/1aPunR3TtPM26udwK_15m7WmFHcRhs5ywBYZIFgff4vw/edit?usp=sharing
