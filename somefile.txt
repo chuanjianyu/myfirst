@@ -1,7 +1,6 @@
-王泽锋(w00219902) 20:02
+
 https://www.jetbrains.com/go/download/#section=windows
 https://github.com/moovweb/gvm
-王泽锋(w00219902) 20:03
  8170  bash < <(curl -s -k -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
  8172  source /root/.gvm/scripts/gvm
  8173  gvm
@@ -16,15 +15,8 @@ https://github.com/moovweb/gvm
  8185  gvm list
  8190  gvm install go1.8.2
  8220  history grep |gvm
-
-王泽锋(w00219902) 20:06
-华为邮箱网页版
-https://email-cn.huawei.com
-
-王泽锋(w00219902) 20:17
 kubernetes官方文档库，包含少量在线教程可以自己试用一下
 https://kubernetes.io/docs/home/
-王泽锋(w00219902) 20:29
 kubernetes 中文文档
 https://www.kubernetes.org.cn/docs
 
@@ -78,7 +70,3 @@ export GOPATH=/ycj/k8s_paas
 export GOPATH=/ycj/k8s_v1.5
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN:$GOROOT/bin
-
-
-
-https://docs.google.com/document/d/1aPunR3TtPM26udwK_15m7WmFHcRhs5ywBYZIFgff4vw/edit?usp=sharing
