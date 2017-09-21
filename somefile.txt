@@ -36,6 +36,7 @@ echo "==============Install git and deps============="
 sudo make install
 echo "==============Install successfully============="
 
+export ALLOW_PRIVILEGED=true
 export ALLOW_SECURITY_CONTEXT=false
 sed -i '/local git/a\  KUBE_GIT_VERSION=v1.5.0-1-3d90345fdb489d' hack/lib/version.sh
 mkdir -p /var/run/kubernetes/
