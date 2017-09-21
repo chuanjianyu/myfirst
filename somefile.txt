@@ -70,3 +70,6 @@ export GOPATH=/ycj/k8s_paas
 export GOPATH=/ycj/k8s_v1.5
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN:$GOROOT/bin
+
+
+https://github.com/kubernetes/kubernetes/pull/43831
