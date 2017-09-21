@@ -74,3 +74,21 @@ export PATH=$PATH:$GOBIN:$GOROOT/bin
 
 
 https://github.com/kubernetes/kubernetes/pull/43831
+
+
+
+cat <<EOF >namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kube-system
+EOF
+        ${KUBECTL} config set-cluster local --server=https://${API_HOST_IP}:${API_SECURE_PORT} --certificate-authority=${ROOT_CA_FILE}
+        ${KUBECTL} config set-context local --cluster=local
+        ${KUBECTL} config use-context local
+
+        ${KUBECTL} create -f namespace.yaml
+        # use kubectl to create skydns rc and service
+        ${KUBECTL} --namespace=kube-system create -f skydns-rc.yaml
+        ${KUBECTL} --namespace=kube-system create -f skydns-svc.yaml
+        echo "Kube-dns rc and service successfully deployed."
