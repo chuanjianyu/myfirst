@@ -92,3 +92,4 @@ EOF
         ${KUBECTL} --namespace=kube-system create -f skydns-rc.yaml
         ${KUBECTL} --namespace=kube-system create -f skydns-svc.yaml
         echo "Kube-dns rc and service successfully deployed."
+https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=%24%7BKUBE_DNS_SERVER_IP%3A-10.0.0.10%7D&rsv_pq=cd517b0100019660&rsv_t=1093uJN4teLYej32KFoNxnbyfVdqDbeQKckOEMWt0VBdTHp6um3g4Z3E4Ok&rqlang=cn&rsv_enter=1&rsv_n=2&rsv_sug3=1
