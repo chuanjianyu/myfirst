@@ -1,41 +1,39 @@
-
-https://www.jetbrains.com/go/download/#section=windows
+# gvm安装
 https://github.com/moovweb/gvm
- 8170  bash < <(curl -s -k -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
- 8172  source /root/.gvm/scripts/gvm
- 8173  gvm
- 8175  gvm list
- 8176  gvm listall
- 8177  gvm install go1.8.2
- 8179  cat /root/.gvm/logs/go-go1.8.2-compile.log
- 8181  gvm install --help
- 8182  gvm install go1.8.2 -B
- 8183  gvm list
- 8184  gvm use go1.8.2 --default
- 8185  gvm list
- 8190  gvm install go1.8.2
- 8220  history grep |gvm
-kubernetes官方文档库，包含少量在线教程可以自己试用一下
+bash < <(curl -s -k -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+source /root/.gvm/scripts/gvm
+gvm
+gvm list
+gvm listall
+gvm install go1.8.2
+cat /root/.gvm/logs/go-go1.8.2-compile.log
+gvm install --help
+gvm install go1.8.2 -B
+gvm list
+gvm use go1.8.2 --default
+gvm list
+gvm install go1.8.2
+history grep |gvm
+
+#kubernetes官方文档库
 https://kubernetes.io/docs/home/
-kubernetes 中文文档
+#kubernetes 中文文档
 https://www.kubernetes.org.cn/docs
 
-Docker —— 从入门到实践
+#Docker —— 从入门到实践
 https://yeasy.gitbooks.io/docker_practice/content/install/ubuntu.html
-echo "================Update apt-get================="
+
+#升级git版本
 sudo apt-get update
 sudo apt-get install -y build-essential libcurl4-openssl-dev libexpat1-dev gettext libz-dev libssl-dev autoconf
-echo "==============Download git v2.8.1=============="
 wget https://github.com/git/git/archive/v2.8.1.tar.gz -O git.tar.gz --no-check-certificate
 tar -zxf git.tar.gz
 cd git-*
-echo "==============Make git configure==============="
 make configure
 ./configure --prefix=/usr
-echo "==============Install git and deps============="
 sudo make install
-echo "==============Install successfully============="
 
+#本地local-up
 export ALLOW_PRIVILEGED=true
 export ALLOW_SECURITY_CONTEXT=false
 sed -i '/local git/a\  KUBE_GIT_VERSION=v1.5.0-1-3d90345fdb489d' hack/lib/version.sh
@@ -44,6 +42,7 @@ rm -rf /var/run/kubernetes/*（启动集群前，删除证书文件）
 rm -rf /tmp/* (删除tmp目录下的内容)
 hack/local-up-cluster.sh
 
+# e2e测试
 make -j 8 WHAT=vendor/github.com/onsi/ginkgo/ginkgo
 make -j 8 WHAT=test/e2e/e2e.test
 export KUBE_MASTER_IP=127.0.0.1
@@ -58,38 +57,17 @@ cat > /root/.kube/config << EOF
 }
 EOF
 
-GINKGO_PARALLEL=y ./e2e.test --provider="local" --ginkgo.v=true \
---kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" \
---ginkgo.focus="Conformance"  --ginkgo.skip="Serial" >  /tempfile/e2e_result_20170911_01.log
-
-GINKGO_PARALLEL=y ./e2e.test  --provider="local" --ginkgo.v=true --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" --ginkgo.focus="\[Serial\].*\[Conformance\]" >  /tempfile/e2e_result_20170913_02.log
-
-
- GINKGO_PARALLEL=y e2e.test --host="127.0.0.1:8080" --provider="local" --ginkgo.v=true --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" --ginkgo.focus="\[Serial\].*\[Conformance\]" >  /tempfile/e2e_result_20170908_0201.log
-
-export GOPATH=/ycj/k8s_paas
+#设置相关路径
 export GOPATH=/ycj/k8s_v1.5
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN:$GOROOT/bin
 
+#测试用例（并行）
+GINKGO_PARALLEL=y ./e2e.test --host="http://10.229.50.235:8080" --provider="local" --ginkgo.v=true --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" --ginkgo.focus="Conformance"  --ginkgo.skip="Serial" >  /tempfile/e2e_result_20170923.log
 
+#测试yongli(只能串行)
+./e2e.test --host="http://10.229.50.235:8080" --provider="local" --ginkgo.v=true --kubeconfig="$HOME/.kube/config" --repo-root="$GOPATH/src/k8s.io/kubernetes" --ginkgo.focus="\[Serial\].*\[Conformance\]" >  /tempfile/e2e_result_2017092302.log
+
+https://www.jetbrains.com/go/download/#section=windows
 https://github.com/kubernetes/kubernetes/pull/43831
-
-
-
-cat <<EOF >namespace.yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: kube-system
-EOF
-        ${KUBECTL} config set-cluster local --server=https://${API_HOST_IP}:${API_SECURE_PORT} --certificate-authority=${ROOT_CA_FILE}
-        ${KUBECTL} config set-context local --cluster=local
-        ${KUBECTL} config use-context local
-
-        ${KUBECTL} create -f namespace.yaml
-        # use kubectl to create skydns rc and service
-        ${KUBECTL} --namespace=kube-system create -f skydns-rc.yaml
-        ${KUBECTL} --namespace=kube-system create -f skydns-svc.yaml
-        echo "Kube-dns rc and service successfully deployed."
 https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=0&rsv_idx=1&tn=baidu&wd=%24%7BKUBE_DNS_SERVER_IP%3A-10.0.0.10%7D&rsv_pq=cd517b0100019660&rsv_t=1093uJN4teLYej32KFoNxnbyfVdqDbeQKckOEMWt0VBdTHp6um3g4Z3E4Ok&rqlang=cn&rsv_enter=1&rsv_n=2&rsv_sug3=1
