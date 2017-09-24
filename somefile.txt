@@ -38,8 +38,8 @@ export ALLOW_PRIVILEGED=true
 export ALLOW_SECURITY_CONTEXT=false
 sed -i '/local git/a\  KUBE_GIT_VERSION=v1.5.0-1-3d90345fdb489d' hack/lib/version.sh
 mkdir -p /var/run/kubernetes/
-rm -rf /var/run/kubernetes/*（启动集群前，删除证书文件）
-rm -rf /tmp/* (删除tmp目录下的内容)
+rm -rf /var/run/kubernetes/*
+rm -rf /tmp/*
 hack/local-up-cluster.sh
 
 # e2e测试
